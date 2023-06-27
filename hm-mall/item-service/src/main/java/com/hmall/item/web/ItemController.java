@@ -5,10 +5,7 @@ import com.hmall.item.pojo.Item;
 import com.hmall.item.service.IItemService;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("item")
@@ -34,5 +31,13 @@ public class ItemController {
     @GetMapping("{id}")
     public Item findById(@PathVariable Long id){
         return itemService.findById(id);
+    }
+    /**
+     * 功能描述:新增商品
+     * @return :
+     */
+    @PostMapping
+    public void addItem(@RequestBody Item item){
+        itemService.addItem(item);
     }
 }

@@ -9,4 +9,5 @@ public interface IItemService extends IService<Item> {
 
     Item findById(Long id);
 
+    void addItem(Item item);
 }

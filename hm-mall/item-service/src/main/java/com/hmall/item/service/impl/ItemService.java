@@ -10,6 +10,10 @@ import com.hmall.item.service.IItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.xml.crypto.Data;
+import java.time.LocalDateTime;
+import java.util.Date;
+
 @Service
 public class ItemService extends ServiceImpl<ItemMapper, Item> implements IItemService {
     @Autowired
@@ -34,5 +38,15 @@ public class ItemService extends ServiceImpl<ItemMapper, Item> implements IItemS
     @Override
     public Item findById(Long id) {
         return itemMapper.selectById(id);
+    }
+    /**
+     * 功能描述:新增商品
+     * @return :
+     */
+    @Override
+    public void addItem(Item item) {
+        item.setCreateTime(new Date());
+        item.setUpdateTime(new Date());
+        itemMapper.insert(item);
     }
 }
