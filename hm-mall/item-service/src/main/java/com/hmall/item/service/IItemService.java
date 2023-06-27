@@ -13,4 +13,5 @@ public interface IItemService extends IService<Item> {
 
     void updateStatus(Long id, Integer status);
 
+    void updateInfo(Item item);
 }

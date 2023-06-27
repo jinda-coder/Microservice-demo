@@ -1,5 +1,6 @@
 package com.hmall.item.web;
 
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.hmall.common.dto.PageDTO;
 import com.hmall.item.pojo.Item;
 import com.hmall.item.service.IItemService;
@@ -47,5 +48,13 @@ public class ItemController {
     @PutMapping("/status/{id}/{status}")
     public void updateStatus(@PathVariable Long id,@PathVariable Integer status){
         itemService.updateStatus(id,status);
+    }
+    /**
+     * 功能描述:修改商品信息
+     * @return :
+     */
+    @PutMapping
+    public void updateInfo(@RequestBody Item item){
+        itemService.updateInfo(item);
     }
 }

@@ -1,5 +1,6 @@
 package com.hmall.item.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.plugins.pagination.PageDto;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -60,5 +61,23 @@ public class ItemService extends ServiceImpl<ItemMapper, Item> implements IItemS
         item.setId(id);
         item.setStatus(status);
         itemMapper.updateById(item);
+    }
+    /**
+     * 功能描述:修改商品信息
+     * @return :
+     */
+    @Override
+    public void updateInfo(Item item) {
+        LambdaUpdateWrapper<Item> updateWrapper = new LambdaUpdateWrapper<>();
+        updateWrapper.eq(Item::getId,item.getId())
+                     .set(Item::getName,item.getName())
+                     .set(Item::getCategory,item.getCategory())
+                     .set(Item::getBrand,item.getBrand())
+                     .set(Item::getPrice,item.getPrice())
+                     .set(Item::getStock,item.getStock())
+                     .set(Item::getSpec,item.getSpec())
+                     .set(Item::getImage,item.getImage())
+                     .set(Item::getIsAD,item.getIsAD());
+        itemMapper.update(null,updateWrapper);
     }
 }
