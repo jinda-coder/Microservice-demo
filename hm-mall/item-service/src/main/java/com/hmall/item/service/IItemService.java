@@ -7,4 +7,6 @@ import com.hmall.item.pojo.Item;
 public interface IItemService extends IService<Item> {
     PageDTO<Item> findAllByPage(Integer page, Integer size);
 
+    Item findById(Long id);
+
 }

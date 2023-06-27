@@ -14,6 +14,10 @@ import org.springframework.stereotype.Service;
 public class ItemService extends ServiceImpl<ItemMapper, Item> implements IItemService {
     @Autowired
     ItemMapper itemMapper;
+    /**
+     * 功能描述: 商品数据分页查询
+     * @return :
+     */
     @Override
     public PageDTO<Item> findAllByPage(Integer page, Integer size) {
         Page page1 = new Page(page,size);
@@ -23,4 +27,12 @@ public class ItemService extends ServiceImpl<ItemMapper, Item> implements IItemS
         pageDTO.setList(page1.getRecords());
         return pageDTO;
 }
+    /**
+     * 功能描述:  根据id查询商品
+     * @return :
+     */
+    @Override
+    public Item findById(Long id) {
+        return itemMapper.selectById(id);
+    }
 }
