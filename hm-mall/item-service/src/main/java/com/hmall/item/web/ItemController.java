@@ -40,4 +40,12 @@ public class ItemController {
     public void addItem(@RequestBody Item item){
         itemService.addItem(item);
     }
+    /**
+     * 功能描述:商品上架，下架
+     * @return :
+     */
+    @PutMapping("/status/{id}/{status}")
+    public void updateStatus(@PathVariable Long id,@PathVariable Integer status){
+        itemService.updateStatus(id,status);
+    }
 }

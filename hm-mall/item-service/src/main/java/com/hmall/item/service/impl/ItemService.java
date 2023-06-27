@@ -49,4 +49,16 @@ public class ItemService extends ServiceImpl<ItemMapper, Item> implements IItemS
         item.setUpdateTime(new Date());
         itemMapper.insert(item);
     }
+    /**
+     * 功能描述:商品上架，下架
+     * @return :
+     */
+    @Override
+    public void updateStatus(Long id, Integer status) {
+        Item item = new Item();
+        item.setUpdateTime(new Date());
+        item.setId(id);
+        item.setStatus(status);
+        itemMapper.updateById(item);
+    }
 }
