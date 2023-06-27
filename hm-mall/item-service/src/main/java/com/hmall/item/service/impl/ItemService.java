@@ -80,4 +80,12 @@ public class ItemService extends ServiceImpl<ItemMapper, Item> implements IItemS
                      .set(Item::getIsAD,item.getIsAD());
         itemMapper.update(null,updateWrapper);
     }
+    /**
+     * 功能描述:根据id删除商品
+     * @return :
+     */
+    @Override
+    public void deleteById(Long id) {
+        itemMapper.deleteById(id);
+    }
 }

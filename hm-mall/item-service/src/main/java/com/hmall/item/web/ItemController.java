@@ -57,4 +57,12 @@ public class ItemController {
     public void updateInfo(@RequestBody Item item){
         itemService.updateInfo(item);
     }
+    /**
+     * 功能描述:根据id删除商品
+     * @return :
+     */
+    @DeleteMapping("/{id}")
+    public void deleteById(@PathVariable Long id){
+        itemService.deleteById(id);
+    }
 }
