@@ -22,7 +22,7 @@ public class ItemController {
      * @return :
      */
     @GetMapping("/list")
-    public PageDTO<Item> findAllByPage(@Param("page") Integer page, @Param("size") Integer size){
+    public PageDTO<Item> findAllByPage(@Param("page") Integer page, @Param("size    ") Integer size){
         return itemService.findAllByPage(page,size);
     }
     /**

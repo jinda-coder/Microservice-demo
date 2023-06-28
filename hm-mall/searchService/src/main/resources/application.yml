@@ -1,0 +1,9 @@
+server:
+  port: 8085
+spring:
+  application:
+    name: searchservice
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
