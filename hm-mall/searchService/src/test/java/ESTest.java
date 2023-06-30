@@ -44,6 +44,10 @@ public class ESTest {
             PageDTO<Item> allByPage = itemAPI.findAllByPage(page, size);
             List<Item> list = allByPage.getList();
             list.forEach(item -> {
+                List<String> list1 = new ArrayList<>();
+                list1.add(item.getName());
+                list1.add(item.getBrand());
+                item.setSuggestion(list1);
                 ItemDoc itemDoc = new ItemDoc();
                 BeanUtils.copyProperties(item, itemDoc);
                 IndexRequest request1 = new IndexRequest("item");

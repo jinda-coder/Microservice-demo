@@ -2,7 +2,10 @@ package com.hmall.common.dto;
 
 import lombok.Data;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 
 @Data
 public class Item {
@@ -20,4 +23,5 @@ public class Item {
     private Boolean isAD;//商品状态 1-正常，2-下架
     private Date createTime;//创建时间
     private Date updateTime;//更新时间
+    private List<String> suggestion = new ArrayList<>();
 }
