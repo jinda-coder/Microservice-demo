@@ -1,6 +1,7 @@
 package com.hmall.item.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.plugins.pagination.PageDto;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -87,5 +88,12 @@ public class ItemService extends ServiceImpl<ItemMapper, Item> implements IItemS
     @Override
     public void deleteById(Long id) {
         itemMapper.deleteById(id);
+    }
+
+    @Override
+    public void stock(Long itemId, Integer  num) {
+        Item item = itemMapper.selectById(itemId);
+        item.setStock(item.getStock() + num);
+        itemMapper.update(item,null);
     }
 }

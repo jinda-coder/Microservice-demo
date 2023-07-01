@@ -8,6 +8,15 @@ spring:
     username: root
     password: jinda111
     driver-class-name: com.mysql.jdbc.Driver
+  jackson:
+    generator:
+      write-numbers-as-strings: true
+  rabbitmq:
+    username: itcast
+    password: 123321
+    port: 5672
+    virtual-host: /
+    host: 192.168.169.133
 mybatis-plus:
   type-aliases-package: com.hmall.order.pojo
   configuration:

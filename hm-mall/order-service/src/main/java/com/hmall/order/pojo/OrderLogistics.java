@@ -3,6 +3,7 @@ package com.hmall.order.pojo;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.Builder;
 import lombok.Data;
 
 import java.util.Date;
@@ -11,6 +12,7 @@ import java.util.Date;
  * @author 虎哥
  */
 @Data
+@Builder
 @TableName("tb_order_logistics")
 public class OrderLogistics{
     /**
@@ -58,4 +60,5 @@ public class OrderLogistics{
      * 更新时间
      */
     private Date updateTime;
+    private String mobile;
 }

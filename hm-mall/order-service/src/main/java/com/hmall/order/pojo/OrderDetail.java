@@ -3,12 +3,14 @@ package com.hmall.order.pojo;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.Builder;
 import lombok.Data;
 
 import java.util.Date;
 
 @Data
 @TableName("tb_order_detail")
+@Builder
 public class OrderDetail {
     /**
      * 订单编号
@@ -30,7 +32,6 @@ public class OrderDetail {
     /**
      * 商品标题
      */
-    private String title;
     /**
      * 商品单价
      */
@@ -51,4 +52,5 @@ public class OrderDetail {
      * 更新时间
      */
     private Date updateTime;
+    private String name;
 }

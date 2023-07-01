@@ -17,4 +17,5 @@ public interface IItemService extends IService<Item> {
 
     void deleteById(Long id);
 
+    void stock(Long itemId, Integer  num);
 }

@@ -1,4 +1,4 @@
-package com.hmall.item.mq;
+package com.hmall.item.config;
 
 
 import org.springframework.amqp.core.Queue;

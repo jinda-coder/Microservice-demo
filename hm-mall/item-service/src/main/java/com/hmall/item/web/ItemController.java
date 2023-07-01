@@ -34,7 +34,7 @@ public class ItemController {
      * @return :
      */
     @GetMapping("{id}")
-    public Item findById(@PathVariable Long id){
+    public Item findById(@PathVariable(name = "id") Long id){
         return itemService.findById(id);
     }
     /**
@@ -76,5 +76,13 @@ public class ItemController {
         itemService.deleteById(id);
         String queue = "item.delete.queue";
         rabbitTemplate.convertAndSend(queue,id);
+    }
+    /**
+     * 功能描述:扣减库存接口
+     * @return :
+     */
+    @PutMapping("stock/{itemId}/{num}")
+    public void stock(@PathVariable("itemId") Long itemId,@PathVariable("num") Integer  num){
+        itemService.stock(itemId,num);
     }
 }

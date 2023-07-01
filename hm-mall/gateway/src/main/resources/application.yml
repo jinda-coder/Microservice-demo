@@ -12,18 +12,26 @@ spring:
           uri: lb://itemservice
           predicates:
             - Path=/item/**
+          filters:
+            - AddRequestHeader=authorization, 2
         - id: userservice
           uri: lb://userservice
           predicates:
             - Path=/user/**,/address/**
+          filters:
+            - AddRequestHeader=authorization, 2
         - id: orderservice
           uri: lb://orderservice
           predicates:
             - Path=/order/**,/pay/**
+          filters:
+            - AddRequestHeader=authorization, 2
         - id: searchservice
           uri: lb://searchservice
           predicates:
             - Path=/search/**
+          filters:
+            - AddRequestHeader=authorization, 2
       globalcors: # 全局的跨域处理
         add-to-simple-url-handler-mapping: true # 解决options请求被拦截问题
         corsConfigurations:

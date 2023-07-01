@@ -8,7 +8,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @SpringBootApplication
 @EnableFeignClients(basePackages = "com.hmall.api")
 public class SearchApplication {
-    public static void main(String[] args) {
+    public static void main(String[] args)   {
         SpringApplication.run(SearchApplication.class,args);
     }
 }

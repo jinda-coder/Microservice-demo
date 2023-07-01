@@ -3,6 +3,7 @@ import com.hmall.api.ItemAPI;
 import com.hmall.common.dto.Item;
 import com.hmall.common.dto.PageDTO;
 import com.hmall.seach.SearchApplication;
+import com.hmall.seach.config.BaseContext;
 import com.hmall.seach.pojo.ItemDoc;
 import org.elasticsearch.action.bulk.BulkRequest;
 import org.elasticsearch.action.bulk.BulkResponse;
@@ -28,12 +29,18 @@ public class ESTest {
     @Autowired
     RestHighLevelClient client;
     @Autowired
-    ItemAPI itemAPI;
+     ItemAPI itemAPI;
 //    @Before
 //    public void setUp() throws Exception {
 //        client = new RestHighLevelClient(RestClient.builder(HttpHost.create("http://localhost:9200")));
 //
 //    }
+
+    /**
+     * @Auth: ruYan
+     * @Desc: Feign添加请求头测试
+     * @Date: 2023/6/30 16:28
+     */
     @Test
     public void bulk() throws IOException {
         Integer page = 1;
@@ -44,9 +51,9 @@ public class ESTest {
             PageDTO<Item> allByPage = itemAPI.findAllByPage(page, size);
             List<Item> list = allByPage.getList();
             list.forEach(item -> {
-                List<String> list1 = new ArrayList<>();
+                                List<String> list1 = new ArrayList<>();
                 list1.add(item.getName());
-                list1.add(item.getBrand());
+                                list1.add(item.getBrand());
                 item.setSuggestion(list1);
                 ItemDoc itemDoc = new ItemDoc();
                 BeanUtils.copyProperties(item, itemDoc);
